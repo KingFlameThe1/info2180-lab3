@@ -1,11 +1,37 @@
 document.addEventListener("DOMContentLoaded", () => {
-  let gBoard = document.getElementById("board");
+	let gBoard = document.getElementById("board");
 
 	let boxes = gBoard.childNodes;
-	console.log(boxes);
+	//console.log(boxes);
 	for(var i = 1; i < boxes.length; i += 2){
 		boxes[i].classList.add("square");
 	};
+	
+	
+	
+	let turn = [];
+	
+	for(var i = 1; i < boxes.length; i += 2){
+		
+		boxes[i].addEventListener('click', function(e){
+			let xText =  document.createTextNode('X');
+	let oText =  document.createTextNode('O');
+			if (turn.length % 2 == 0){
+				e.target.appendChild(oText);
+				e.target.classList.add('square.O');
+				turn += ["O"];
+			}else{
+				e.target.appendChild(xText);
+				e.target.classList.add('square.X');
+				turn +=["X"];
+				
+			}
+			console.log(turn);
+		});
+	};
+	
+	
+	
 	
 });
 
@@ -13,6 +39,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /*
+
+
+	
+		boxes.forEach(function(elem, index) {
+		if (turn % 2 === 0){
+			elem.addEventListener('click', function(e) {
+				e.target.appendChild(oText);
+				e.target.classList.add('square.O');
+			});
+		}else{
+			elem.addEventListener('click', function(e) {
+				e.target.appendChild(oText);
+				e.target.classList.add('square.X');
+			});
+		}
+	});
+	
+	
+boxes.forEach(function(elem, index) {
+		let xText = "X";
+		let oText = "O";
+		
+		if (turn % 2 === 0){
+			elem.addEventListener('click', function(e) {
+				e.target.appendChild(oText);
+				e.target.classList.add('square.O');
+			});
+		}else{
+			elem.addEventListener('click', function(e) {
+				e.target.appendChild(oText);
+				e.target.classList.add('square.X');
+			});
+		}
+	});
+
 
 document.addEventListener("load",function(e){
 	for(var i = 1; i <= document.getElementById('board').childElementCount;i++){
