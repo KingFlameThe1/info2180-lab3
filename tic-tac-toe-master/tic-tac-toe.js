@@ -24,12 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			if ((turn % 2 == 0) && (move[parseInt(e.target.id)].length < 1) && (win == false)){
 				e.target.appendChild(oText);
-				e.target.classList.add('square.O');
+				e.target.classList.add('O');
 				move[parseInt(e.target.id)] = "O";
 				turn++;
 			}else if((turn % 2 != 0) && (move[parseInt(e.target.id)].length < 1) && (win == false)){
 				e.target.appendChild(xText);
-				e.target.classList.add('square.X');
+				e.target.classList.add('X');
 				move[parseInt(e.target.id)] ="X";
 				turn++;
 			}
@@ -40,16 +40,15 @@ document.addEventListener("DOMContentLoaded", () => {
 	
 	boxes.forEach(function(elem, index) {
 		elem.addEventListener('mouseover', function(e) {
-			if (turn % 2 == 0){
-				e.target.classList.add('hover.O');
-			}else{e.target.classList.add('hover');}
+			if (turn % 2 == 0){	
+			e.target.classList.add('hover');
+			}
 		});
 	  
 		elem.addEventListener('mouseout', function(e) {
 			if (turn % 2 == 0){
-				e.target.classList.remove('hover.O');
-			}else{e.target.classList.remove('hover');}
-			
+				e.target.classList.remove('hover');
+			}
 		});
 	});//end boxes.foreEach
 	
